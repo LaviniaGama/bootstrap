@@ -149,8 +149,7 @@
                 <div class="audio-player mt-4">
                     <h4><i class="fas fa-headphones"></i> O Som da F1</h4>
                     <audio controls class="w-100">
-                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-                        Seu navegador não suporta áudio.
+                    <source src="freesound_community-f1-car-passing-66782.mp3" type="audio/mpeg">
                     </audio>
                     <small class="text-muted">* Áudio demonstrativo - Som característico dos motores V8</small>
                 </div>
@@ -260,7 +259,6 @@
         </div>
     </section>
 
-    <!-- Links Externos -->
     <section class="container my-5">
         <h3 class="text-center mb-4">Links Úteis</h3>
         <div class="row text-center">
@@ -282,7 +280,6 @@
         </div>
     </section>
 
-    <!-- Rodapé -->
     <footer>
         <div class="container text-center">
             <p>&copy; 2024 Fórmula 1 Landing Page | Todos os direitos reservados</p>
@@ -295,47 +292,10 @@
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- JavaScript para modificar o DOM -->
     <script>
-        // Função 1: Trocar a imagem principal
-        function changeImage() {
-            const image = document.getElementById('mainImage');
-            const images = [
-                'https://images.unsplash.com/photo-1568605114967-8130f3a36942?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-                'https://images.unsplash.com/photo-1542280756-74b2f55e73ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-                'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
-            ];
-            
-            let currentIndex = images.indexOf(image.src);
-            if (currentIndex === -1 || currentIndex === images.length - 1) {
-                image.src = images[0];
-            } else {
-                image.src = images[currentIndex + 1];
-            }
-            
-            // Efeito visual
-            image.style.transition = 'all 0.5s';
-            image.style.opacity = '0.5';
-            setTimeout(() => {
-                image.style.opacity = '1';
-            }, 200);
-        }
-        
-        // Função 2: Reset da imagem original
-        function resetImage() {
-            const image = document.getElementById('mainImage');
-            image.src = 'https://images.unsplash.com/photo-1568605114967-8130f3a36942?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80';
-            image.style.opacity = '1';
-            
-            // Mensagem de feedback
-            showDriverInfoMessage('Imagem restaurada para o padrão!', 'success');
-        }
-        
-        // Função auxiliar para mostrar informações dos pilotos
-        function showDriverInfo(driverName) {
+            function showDriverInfo(driverName) {
             const driverInfoDiv = document.getElementById('driverInfo');
             const driverMessage = document.getElementById('driverMessage');
             
@@ -348,9 +308,7 @@
             
             driverMessage.textContent = driverDetails[driverName] || `${driverName} é um dos grandes nomes da Fórmula 1.`;
             driverInfoDiv.style.display = 'block';
-            
-            // Scroll suave até a informação
-            driverInfoDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    driverInfoDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
         
         function showDriverInfoMessage(message, type) {
@@ -359,17 +317,14 @@
             driverMessage.textContent = message;
             driverInfoDiv.style.display = 'block';
             
-            // Mudar classe baseada no tipo
             driverInfoDiv.className = type === 'success' ? 'alert alert-success mt-3' : 'alert alert-info mt-3';
             
-            // Esconder após 3 segundos
             setTimeout(() => {
                 driverInfoDiv.style.display = 'none';
                 driverInfoDiv.className = 'alert alert-info mt-3';
             }, 3000);
         }
         
-        // Animação de entrada para os cards
         document.addEventListener('DOMContentLoaded', function() {
             const cards = document.querySelectorAll('.driver-card');
             cards.forEach((card, index) => {
